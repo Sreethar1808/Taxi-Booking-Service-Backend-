@@ -7,14 +7,21 @@ import com.example.RideIT.Transformer.CabTransformer;
 import com.example.RideIT.Transformer.DriverTransformer;
 import com.example.RideIT.dto.request.CabRequest;
 import com.example.RideIT.dto.request.DriverRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DriverService {
 
-    @Autowired
-    DriverRepository driverRepository;
+//    @Autowired
+//    DriverRepository driverRepository;
+
+   private final DriverRepository driverRepository;
+
+    public DriverService(DriverRepository driverRepository) {
+        this.driverRepository = driverRepository;
+    }
+
+
     public String addDriver(DriverRequest driverRequest) {
 
         CabRequest cabRequest = driverRequest.getCabRequest();
