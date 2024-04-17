@@ -1,7 +1,10 @@
 package com.example.RideIT.Transformer;
 
+import com.example.RideIT.Models.Cab;
 import com.example.RideIT.Models.Driver;
 import com.example.RideIT.dto.request.DriverRequest;
+import com.example.RideIT.dto.response.CabResponse;
+import com.example.RideIT.dto.response.DriverResponse;
 
 public class DriverTransformer {
 
@@ -15,4 +18,16 @@ public class DriverTransformer {
                   .rating(0)
                   .build();
     }
+
+    public static DriverResponse driverToDriverResponse(Driver driver)
+    {
+        return DriverResponse.builder()
+                .name(driver.getName())
+                .mobNo(driver.getMobNo())
+                .rating(driver.getRating())
+                .cabResponse(CabTransformer.caToCabResponse(driver.getCab()))
+                .build();
+    }
+
+
 }

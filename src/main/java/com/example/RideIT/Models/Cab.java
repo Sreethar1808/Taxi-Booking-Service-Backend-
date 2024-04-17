@@ -31,6 +31,7 @@ public class Cab {
 
     double farPerKm;
 
+    boolean available;
     @OneToOne
     @JoinColumn
     Driver driver;

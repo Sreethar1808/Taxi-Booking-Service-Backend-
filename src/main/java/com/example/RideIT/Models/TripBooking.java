@@ -16,12 +16,14 @@ import java.util.UUID;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "tripbooking")
+@Builder
 public class TripBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     UUID id;
 
+    String bookingId;
     String source;
     String destination;
 
